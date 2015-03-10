@@ -1,0 +1,21 @@
+---
+language: ruby
+rvm:
+  - 2.1.5
+  - 2.1.1
+  - 2.0.0-p481
+  - 1.9.3-p484
+env:
+  - PUPPET_VERSION=3.7.4
+  - PUPPET_VERSION=3.6.2
+  - PUPPET_VERSION=3.5.1
+  - PUPPET_VERSION=3.4.3
+before_install:
+  - bundle --version
+  - gem --version
+script:
+  - bundle exec rake validate
+  - bundle exec rake lint
+  - bundle exec rake spec SPEC_OPTS='-fd -c'
+notifications:
+  email: false

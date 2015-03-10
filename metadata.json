@@ -1,0 +1,30 @@
+{
+  "name":         "rji-waylon",
+  "version":      "0.1.0",
+  "author":       "rji",
+  "summary":      "Puppet module to deploy Waylon instances.",
+  "license":      "Apache 2.0",
+  "source":       "https://github.com/rji/puppet-waylon",
+  "project_page": "https://github.com/rji/puppet-waylon",
+  "issues_url":   "https://github.com/rji/puppet-waylon/issues",
+  "tags":         ["waylon", "ci", "radiator", "jenkins"],
+  "operatingsystem_support": [
+      {
+          "operatingsystem":        "Debian",
+          "operatingsystemrelease": ["7"]
+      }
+  ],
+  "requirements": [
+      {
+          "name":                "puppet",
+          "version_requirement": ["3.x"]
+      }
+  ],
+  "dependencies": [
+    {
+        "name":                "puppetlabs-stdlib",
+        "version_requirement": ">= 1.0.0"
+    }
+  ]
+}
+

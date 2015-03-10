@@ -1,0 +1,4 @@
+# Class: waylon
+#
+class waylon {
+}
