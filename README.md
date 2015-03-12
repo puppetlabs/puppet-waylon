@@ -27,7 +27,7 @@ You can also customize the deployment, to an extent:
 ```puppet
 class { 'waylon':
   ruby_version   => '2.1.5',
-  waylon_version => '2.1.0,
+  waylon_version => '2.1.0',
 }
 ```
 
