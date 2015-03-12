@@ -1,4 +1,4 @@
-# waylon [![Build Status](https://travis-ci.org/rji/puppet-waylon.svg?branch=master)](https://travis-ci.org/rji/puppet-waylon)
+# rji-waylon [![Build Status](https://travis-ci.org/rji/puppet-waylon.svg?branch=master)](https://travis-ci.org/rji/puppet-waylon)
 A Puppet module to deploy [Waylon][1] instances.
 
 
