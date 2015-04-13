@@ -62,6 +62,16 @@ rake validate          # Check syntax of Ruby files and call :syntax / Vali...
 We use Travis CI to run syntax validation, linting, and spec tests, in that
 order.
 
+For more extensive testing, we've included a [Vagrantfile](Vagrantfile) in the
+root of the repository. You can bring in the dependencies and provision the
+Vagrant box like so:
+
+```
+$ bundle install --path .bundle/cache
+$ bundle exec rake spec_prep
+$ vagant up
+```
+
 For more information on contributing to rji-waylon, please see the
 [CONTRIBUTING][2] doc in the root of this repo.
 
