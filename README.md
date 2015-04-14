@@ -59,9 +59,11 @@ rake syntax:templates  # Syntax check Puppet templates
 rake validate          # Check syntax of Ruby files and call :syntax / Vali...
 ```
 
+### Testing with Travis CI
 We use Travis CI to run syntax validation, linting, and spec tests, in that
 order.
 
+### Testing with Vagrant
 For more extensive testing, we've included a [Vagrantfile](Vagrantfile) in the
 root of the repository. You can bring in the dependencies and provision the
 Vagrant box like so:
@@ -72,8 +74,12 @@ $ bundle exec rake spec_prep
 $ vagant up
 ```
 
+The app should now be available at <http://localhost:8080>.
+
+### Contributing
 For more information on contributing to rji-waylon, please see the
 [CONTRIBUTING][2] doc in the root of this repo.
+
 
 [1]: https://github.com/rji/waylon
 [2]: CONTRIBUTING.md
