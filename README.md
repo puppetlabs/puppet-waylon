@@ -16,7 +16,8 @@ We plan to add support for additional operating systems in the future.
 
 
 ## Usage
-Simply include the `waylon` class in your Puppet manifests, like so:
+To use the defaults as specified in `params.pp`, simply include the `waylon`
+class in your Puppet manifests, like so:
 
 ```puppet
 include waylon
@@ -26,12 +27,18 @@ You can also customize the deployment, to an extent:
 
 ```puppet
 class { 'waylon':
-  ruby_version   => '2.1.5',
-  waylon_version => '2.1.0',
+  rbenv_install_path => '/usr/local/rbenv',
+  ruby_version       => '2.1.5',
+  unicorn_version    => '4.8.3',
+  waylon_version     => '2.1.0',
 }
 ```
 
-Note that Waylon requires Ruby 2.1.0 or newer.
+Note that Waylon requires Ruby 2.1.x.
+
+
+### Configuration
+TODO
 
 
 ## Development
@@ -59,9 +66,11 @@ rake syntax:templates  # Syntax check Puppet templates
 rake validate          # Check syntax of Ruby files and call :syntax / Vali...
 ```
 
+
 ### Testing with Travis CI
 We use Travis CI to run syntax validation, linting, and spec tests, in that
 order.
+
 
 ### Testing with Vagrant
 For more extensive testing, we've included a [Vagrantfile](Vagrantfile) in the
@@ -75,6 +84,7 @@ $ vagant up
 ```
 
 The app should now be available at <http://localhost:8080>.
+
 
 ### Contributing
 For more information on contributing to rji-waylon, please see the
