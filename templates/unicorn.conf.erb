@@ -1,7 +1,9 @@
 # This file is managed by Puppet.
 CONFIGURED=yes
 TIMEOUT=60
-APP_ROOT=<%= @app_root %>
+APP_ROOT="<%= @app_root %>"
 CONFIG_RB="$APP_ROOT/config/unicorn.rb"
 PID=/var/run/unicorn.pid
+DAEMON="<%= "#{@rbenv_install_path}/versions/#{@ruby_version}/bin/unicorn" %>"
+PATH="<%= "#{@rbenv_install_path}/versions/#{@ruby_version}/bin" -%>:${PATH}"
 UNICORN_OPTS="-D -c $CONFIG_RB -E deployment -l /var/run/unicorn.sock"
