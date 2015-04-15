@@ -33,7 +33,8 @@ class waylon (
   }
 
   class { '::waylon::config':
-    before  => Class['waylon::memcached'],
+    app_root => $app_root,
+    before   => Class['waylon::memcached'],
   }
 
   class { '::waylon::memcached':

@@ -2,7 +2,7 @@
 # Generate the 'waylon.yml' configuration file.
 #
 class waylon::config (
-  $app_root          = $::waylon::params::app_root,
+  $app_root,
   $refresh_interval  = $::waylon::params::refresh_interval,
   $trouble_threshold = $::waylon::params::trouble_threshold,
   $memcached_server  = $::waylon::params::memcached_server,
