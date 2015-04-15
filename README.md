@@ -38,7 +38,25 @@ Note that Waylon requires Ruby 2.1.x.
 
 
 ### Configuration
-TODO
+Ideally, all configuration should be in Hiera, as to keep the data separate
+from the code. An example of this is shown below:
+
+```yaml
+waylon::config::refresh_interval: '120'
+waylon::config::trouble_threshold: '0'
+waylon::config::views:
+  'My View':
+    jenkins-dev:
+      url: https://jenkins-dev.example.com
+      username: 'waylon'
+      password: 'topsecret'
+      jobs:
+        - 'Job 1'
+        - 'Job 2'
+```
+
+For a complete reference of the YAML structure expected by Waylon, please see
+the example config file located at `config/waylon.yml.example`.
 
 
 ## Development

@@ -27,11 +27,15 @@ class waylon (
     unicorn_version    => $unicorn_version,
     waylon_version     => $waylon_version,
     require            => Anchor['waylon::begin'],
-    before             => Class['waylon::memcached'],
+    before             => Class['waylon::config'],
+  }
+
+  class { '::waylon::config':
+    before  => Class['waylon::memcached'],
   }
 
   class { '::waylon::memcached':
-    before => Class['waylon::unicorn'],
+    before  => Class['waylon::unicorn'],
   }
 
   class { '::waylon::unicorn':
