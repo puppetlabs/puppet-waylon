@@ -9,8 +9,6 @@ class waylon::params {
   $unicorn_version    = '4.8.3'
   $waylon_version     = '2.1.2'
 
-  $app_root = "${rbenv_install_path}/versions/${ruby_version}/lib/ruby/gems/2.1.0/gems/waylon-${waylon_version}"
-
   # Config defaults
   $refresh_interval  = hiera('waylon::config::refresh_interval', '120')
   $trouble_threshold = hiera('waylon::config::trouble_threshold', '0')

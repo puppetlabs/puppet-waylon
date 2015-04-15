@@ -5,12 +5,14 @@
 # cases.
 #
 class waylon (
-  $app_root           = $::waylon::params::app_root,
   $rbenv_install_path = $::waylon::params::rbenv_install_path,
   $ruby_version       = $::waylon::params::ruby_version,
   $unicorn_version    = $::waylon::params::unicorn_version,
   $waylon_version     = $::waylon::params::waylon_version,
 ) inherits ::waylon::params {
+
+  # Build the path to the application working directory based on params
+  $app_root = "${rbenv_install_path}/versions/${ruby_version}/lib/ruby/gems/2.1.0/gems/waylon-${waylon_version}"
 
   # Up to this point, we only support running on Debian 7 "Wheezy".
   # This is likely to change in the future.
