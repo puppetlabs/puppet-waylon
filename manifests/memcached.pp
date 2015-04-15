@@ -7,7 +7,7 @@ class waylon::memcached {
     ensure => installed,
   }
 
-  file { '/etc/memcached.conf':
+  file { '/etc/memcached_local.conf':
     ensure  => file,
     owner   => 'root',
     group   => 'root',
