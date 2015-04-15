@@ -22,6 +22,15 @@ describe 'waylon' do
     it { should contain_rbenv__gem('waylon')  }
     it { should contain_rbenv__gem('unicorn') }
     it { should contain_package('nginx')      }
+
+    it 'should manage waylon.yml with hiera' do
+      should contain_file('/usr/local/rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/waylon-2.1.2/config/waylon.yml').with(
+        'content' => /refresh_interval: "60"/
+      )
+      should contain_file('/usr/local/rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/waylon-2.1.2/config/waylon.yml').with(
+        'content' => /url: "https:\/\/jenkins\.puppetlabs\.com"/
+      )
+    end
   end
 
   context 'with a custom rbenv_install_path' do

@@ -1,6 +1,0 @@
-:hierarchy:
-  - common
-:backends:
-  - yaml
-:yaml:
-  :datadir: '/vagrant/tests'

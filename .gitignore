@@ -4,5 +4,6 @@
 *~
 Gemfile.lock
 pkg/
-spec/fixtures/
+spec/fixtures/modules/
+spec/fixtures/manifests/
 .vagrant/

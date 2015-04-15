@@ -102,8 +102,21 @@ $ vagant up
 ```
 
 The app should now be available at <http://localhost:8080>, with a few Waylon
-views already loaded (as defined in `tests/common.yaml`).
+views already loaded (as defined in `spec/fixtures/hiera/common.yaml`).
 
+#### Caveats
+Due to PUP-1531, the "waylon" directory cannot be symlinked in Puppet's
+`modulepath`. This means if you `vagrant up` and then try to run `rake spec`,
+spec tests will fail because Waylon is a directory and not a symlink back to
+the module root. To workaround this, you should run the following if you need
+to re-run spec tests _after_ using the Vagrant environment:
+
+```
+$ rm -rf spec/fixtures/modules/waylon
+$ bundle exec rake spec
+```
+
+This is ticketed at https://github.com/rji/puppet-waylon/issues/1.
 
 ### Contributing
 For more information on contributing to rji-waylon, please see the
