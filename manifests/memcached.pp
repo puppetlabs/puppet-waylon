@@ -13,6 +13,7 @@ class waylon::memcached {
     group   => 'root',
     mode    => '0644',
     source  => 'puppet:///modules/waylon/memcached.conf',
+    notify  => Service['memcached'],
     require => Package['memcached'],
   }
 
