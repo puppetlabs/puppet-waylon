@@ -1,1 +1,1 @@
-include waylon
+hiera_include('classes')

@@ -15,6 +15,7 @@ Vagrant.configure(2) do |config|
 
   # Symlinked modules in a modulepath are broken. We set up multiple synced
   # folders here to workaround the issue. See PUP-1531. -- roger
+  config.vm.synced_folder '.',                     '/vagrant'
   config.vm.synced_folder 'spec/fixtures/modules', '/tmp/puppet/modules'
   config.vm.synced_folder '.',                     '/tmp/puppet/modules/waylon'
 
@@ -23,6 +24,6 @@ Vagrant.configure(2) do |config|
   config.vm.provision 'puppet' do |pp|
     pp.manifests_path = 'tests'
     pp.manifest_file  = 'init.pp'
-    pp.options        = '--modulepath /tmp/puppet/modules'  # PUP-1531
+    pp.options        = '--modulepath /tmp/puppet/modules --hiera_config /vagrant/tests/hiera.yaml'  # PUP-1531
   end
 end

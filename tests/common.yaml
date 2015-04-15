@@ -1,0 +1,18 @@
+---
+classes:
+  - waylon
+
+waylon::config::refresh_interval: '60'
+waylon::config::trouble_threshold: '10'
+waylon::config::views:
+  'Jenkins Core':
+    'ci.jenkins-ci.org':
+      url: 'https://ci.jenkins-ci.org'
+      views:
+        - 'Jenkins core'
+  'Puppet 3.x':
+    'jenkins.puppetlabs.com':
+      url: 'https://jenkins.puppetlabs.com'
+      nested_views:
+        'Puppet':
+          - '3.x'

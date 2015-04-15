@@ -101,7 +101,8 @@ $ bundle exec rake spec_prep
 $ vagant up
 ```
 
-The app should now be available at <http://localhost:8080>.
+The app should now be available at <http://localhost:8080>, with a few Waylon
+views already loaded (as defined in `tests/common.yaml`).
 
 
 ### Contributing
