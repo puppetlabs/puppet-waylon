@@ -7,7 +7,7 @@ class waylon::params {
   $rbenv_install_path = '/usr/local/rbenv'
   $ruby_version       = '2.1.5'
   $unicorn_version    = '4.8.3'
-  $waylon_version     = '2.1.2'
+  $waylon_version     = '2.1.3'
 
   # Config defaults
   $refresh_interval  = hiera('waylon::config::refresh_interval', '120')

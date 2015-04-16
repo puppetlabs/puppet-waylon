@@ -22,7 +22,7 @@ if [ -f /etc/default/unicorn ]; then
   . /etc/default/unicorn
 fi
 
-PID=${PID-/run/unicorn.pid}
+export PID=${PID-/run/unicorn.pid}
 
 run_by_init() {
     ([ "${previous-}" ] && [ "${runlevel-}" ]) || [ "${runlevel-}" = S ]
