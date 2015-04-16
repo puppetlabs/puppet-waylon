@@ -30,7 +30,7 @@ class { 'waylon':
   rbenv_install_path => '/usr/local/rbenv',
   ruby_version       => '2.1.5',
   unicorn_version    => '4.8.3',
-  waylon_version     => '2.1.0',
+  waylon_version     => '2.1.3',
 }
 ```
 

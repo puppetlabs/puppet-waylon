@@ -1,6 +1,6 @@
 {
   "name":         "rji-waylon",
-  "version":      "0.1.0",
+  "version":      "1.0.0",
   "author":       "rji",
   "summary":      "Puppet module to deploy Waylon instances.",
   "license":      "Apache 2.0",
@@ -17,7 +17,7 @@
   "requirements": [
       {
           "name":                "puppet",
-          "version_requirement": ["3.x"]
+          "version_requirement": "3.x"
       }
   ],
   "dependencies": [
