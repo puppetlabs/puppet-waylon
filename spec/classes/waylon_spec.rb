@@ -21,17 +21,17 @@ describe 'waylon' do
 
     it 'should install default versions of all packages' do
       should contain_rbenv__build('2.1.5').with_global('true')
-      should contain_rbenv__gem('waylon').with_version('2.1.3')
+      should contain_rbenv__gem('waylon').with_version('2.1.4')
       should contain_rbenv__gem('waylon').with_ruby_version('2.1.5')
       should contain_rbenv__gem('unicorn').with_ruby_version('2.1.5')
       should contain_package('nginx')
     end
 
     it 'should manage waylon.yml with hiera' do
-      should contain_file('/usr/local/rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/waylon-2.1.3/config/waylon.yml').with(
+      should contain_file('/usr/local/rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/waylon-2.1.4/config/waylon.yml').with(
         'content' => /refresh_interval: "60"/
       )
-      should contain_file('/usr/local/rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/waylon-2.1.3/config/waylon.yml').with(
+      should contain_file('/usr/local/rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/waylon-2.1.4/config/waylon.yml').with(
         'content' => /url: "https:\/\/jenkins\.puppetlabs\.com"/
       )
     end
