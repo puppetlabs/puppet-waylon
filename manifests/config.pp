@@ -11,9 +11,12 @@ class waylon::config (
 
   # Build a hash so we can convert it to YAML in waylon.yml.erb
   $config = {
-    'refresh_interval'  => $refresh_interval,
-    'trouble_threshold' => $trouble_threshold,
-    'memcached_server'  => $memcached_server,
+    'config' => {
+      'refresh_interval'  => $refresh_interval,
+      'trouble_threshold' => $trouble_threshold,
+      'memcached_server'  => $memcached_server,
+    },
+    'views' => $views,
   }
 
   file { "${app_root}/config/waylon.yml":
@@ -21,6 +24,6 @@ class waylon::config (
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('waylon/waylon.yml.erb'),
+    content => inline_template("<%= scope['::waylon::config::config'].to_yaml %>"),
   }
 }

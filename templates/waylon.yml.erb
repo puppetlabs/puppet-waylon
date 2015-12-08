@@ -1,7 +1,0 @@
----
-# This file is managed by Puppet.
-config:
-<%= scope['::waylon::config::config'].to_yaml.gsub('---', '') %>
-
-views:
-<%= scope['::waylon::config::views'].to_yaml.gsub('---', '') %>
