@@ -7,6 +7,7 @@ class waylon::install (
   $ruby_version,
   $unicorn_version,
   $waylon_version,
+  $manage_deps = true,
 ) {
 
   # build-essential and libssl-dev are req'd for the rbenv ruby-build plugin.
@@ -20,6 +21,7 @@ class waylon::install (
   class { '::rbenv':
     install_dir => $rbenv_install_path,
     latest      => true,
+    manage_deps => $manage_deps,
   }
 
   rbenv::plugin { 'sstephenson/ruby-build':
