@@ -24,7 +24,13 @@ class waylon::install (
       }
     }
     'centos': {
+      # for rbenv
       package { ['git-core', 'zlib', 'zlib-devel', 'gcc-c++', 'patch', 'readline', 'readline-devel', 'libyaml-devel', 'libffi-devel', 'openssl-devel', 'make', 'bzip2', 'autoconf', 'automake', 'libtool', 'bison', 'sqlite-devel']:
+        ensure => installed,
+        before => Class['rbenv'],
+      }
+      # for bundle install - building memcached with native extensions
+      package { 'cyrus-sasl-devel':
         ensure => installed,
         before => Class['rbenv'],
       }
@@ -36,15 +42,15 @@ class waylon::install (
     install_dir => $rbenv_install_path,
     latest      => true,
     manage_deps => $manage_deps,
-  }
+  } ->
 
   rbenv::plugin { 'sstephenson/ruby-build':
     latest => true,
-  }
+  } ->
 
   rbenv::build { $ruby_version:
     global => true,
-  }
+  } ->
 
   rbenv::gem { 'unicorn':
     ruby_version => $ruby_version,
@@ -52,10 +58,13 @@ class waylon::install (
     skip_docs    => true,
   }
 
-  rbenv::gem { 'waylon':
-    ruby_version => $ruby_version,
-    version      => $waylon_version,
-    skip_docs    => true,
+  if $waylon_version != false {
+    rbenv::gem { 'waylon':
+      ruby_version => $ruby_version,
+      version      => $waylon_version,
+      skip_docs    => true,
+      require => Class['rbenv::build'],
+    }
   }
 
   file { '/var/log/waylon':
