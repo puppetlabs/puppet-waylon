@@ -10,13 +10,27 @@ class waylon::install (
   $manage_deps = true,
 ) {
 
-  # build-essential and libssl-dev are req'd for the rbenv ruby-build plugin.
-  # libsasl2-dev and gettext are req'd for building native extensions for the
-  # memcached gem.
-  package { ['build-essential', 'libssl-dev', 'libsasl2-dev', 'gettext']:
-    ensure => installed,
-    before => Class['rbenv'],
+  # pre-requisites
+  case $::operatingsystem {
+    'debian': {
+      if $::lsbdistcodename == 'wheezy' {
+        # build-essential and libssl-dev are req'd for the rbenv ruby-build plugin.
+        # libsasl2-dev and gettext are req'd for building native extensions for the
+        # memcached gem.
+        package { ['build-essential', 'libssl-dev', 'libsasl2-dev', 'gettext']:
+          ensure => installed,
+          before => Class['rbenv'],
+        }
+      }
+    }
+    'centos': {
+      package { ['git-core', 'zlib', 'zlib-devel', 'gcc-c++', 'patch', 'readline', 'readline-devel', 'libyaml-devel', 'libffi-devel', 'openssl-devel', 'make', 'bzip2', 'autoconf', 'automake', 'libtool', 'bison', 'curl', 'sqlite-devel']:
+        ensure => installed,
+        before => Class['rbenv'],
+      }
+    }
   }
+
 
   class { '::rbenv':
     install_dir => $rbenv_install_path,
