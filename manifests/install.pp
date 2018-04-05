@@ -24,7 +24,7 @@ class waylon::install (
       }
     }
     'centos': {
-      package { ['git-core', 'zlib', 'zlib-devel', 'gcc-c++', 'patch', 'readline', 'readline-devel', 'libyaml-devel', 'libffi-devel', 'openssl-devel', 'make', 'bzip2', 'autoconf', 'automake', 'libtool', 'bison', 'curl', 'sqlite-devel']:
+      package { ['git-core', 'zlib', 'zlib-devel', 'gcc-c++', 'patch', 'readline', 'readline-devel', 'libyaml-devel', 'libffi-devel', 'openssl-devel', 'make', 'bzip2', 'autoconf', 'automake', 'libtool', 'bison', 'sqlite-devel']:
         ensure => installed,
         before => Class['rbenv'],
       }
