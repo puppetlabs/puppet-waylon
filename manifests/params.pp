@@ -5,7 +5,7 @@ class waylon::params {
 
   # Waylon defaults
   $rbenv_install_path = '/usr/local/rbenv'
-  $ruby_version       = '2.1.5'
+  $ruby_version       = '2.2.2'
   $unicorn_version    = '4.8.3'
   $waylon_version     = '2.1.4'
 
