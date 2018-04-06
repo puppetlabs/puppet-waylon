@@ -25,7 +25,7 @@ cd $APP_ROOT || exit 1
 
 
 sig () {
-  test -s "$PID" && kill -$1 `cat $PID`
+  test -s "$PID" && kill -s $1 `cat $PID`
 }
 
 case $action in
@@ -35,7 +35,7 @@ status )
   ;;
 start)
   sig 0 && echo >&2 "Already running" && exit 0
-  su - root -c "$CMD"
+  su - root -c "export PID=$PID; $CMD"
   ;;
 stop)
   sig QUIT && exit 0
@@ -48,7 +48,7 @@ force-stop)
 restart|reload)
   sig HUP && echo reloaded OK && exit 0
   echo >&2 "Couldn't reload, starting '$CMD' instead"
-  su - root -c "$CMD"
+  su - root -c "export PID=$PID; $CMD"
   ;;
 reopen-logs)
   sig USR1
