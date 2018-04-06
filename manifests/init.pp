@@ -14,12 +14,6 @@ class waylon (
   # Build the path to the application working directory based on params
   $app_root = "${rbenv_install_path}/versions/${ruby_version}/lib/ruby/gems/2.1.0/gems/waylon-${waylon_version}"
 
-  # Up to this point, we only support running on Debian 7 "Wheezy".
-  # This is likely to change in the future.
-  if $::lsbdistcodename != 'wheezy' {
-    fail("rji-waylon does not support ${::operatingsystem} ${::lsbdistcodename}")
-  }
-
   anchor { 'waylon::begin': }
   anchor { 'waylon::end': }
 
