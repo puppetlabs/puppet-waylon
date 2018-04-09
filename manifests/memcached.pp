@@ -41,7 +41,7 @@ class waylon::memcached {
     ensure  => running,
     enable  => true,
     require => [
-      File['/etc/memcached_local.conf'],
+      File[$memcached_conf_location],
       File['/var/run/memcached'],
     ],
   }
