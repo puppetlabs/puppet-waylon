@@ -56,7 +56,7 @@ class waylon::install (
     ruby_version => $ruby_version,
     version      => $unicorn_version,
     skip_docs    => true,
-  } ->
+  }
 
   if $waylon_version != false {
     rbenv::gem { 'waylon':
