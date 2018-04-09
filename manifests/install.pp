@@ -63,7 +63,6 @@ class waylon::install (
       ruby_version => $ruby_version,
       version      => $waylon_version,
       skip_docs    => true,
-      require => Class['rbenv::build'],
     }
   }
 
