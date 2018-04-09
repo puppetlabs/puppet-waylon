@@ -6,6 +6,16 @@ class waylon::nginx (
   $app_root,
 ) {
 
+  user { 'www-data':
+    home => '/var/www'
+  } ->
+
+  file { '/var/www/':
+    ensure => directory,
+    owner  => 'www-data',
+    mode   => '0640',
+  } ->
+
   package { 'nginx':
     ensure => installed,
   }

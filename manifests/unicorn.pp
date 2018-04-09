@@ -17,12 +17,23 @@ class waylon::unicorn (
     notify  => Service['unicorn'],
   }
 
+  # pre-requisites
+  case $::operatingsystem {
+    'debian': {
+      $source_initd = 'puppet:///modules/waylon/unicorn.sh'
+    }
+    'centos': {
+      $source_initd = 'puppet:///modules/waylon/unicorn_init_centos.sh'
+    }
+  }
+
+
   file { '/etc/init.d/unicorn':
     ensure  => file,
     owner   => 'root',
     group   => 'root',
     mode    => '0755',
-    source  => 'puppet:///modules/waylon/unicorn.sh',
+    source  => $source_initd,
     require => File['/etc/default/unicorn'],
   }
 
