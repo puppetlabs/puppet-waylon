@@ -1,6 +1,9 @@
 # rji-waylon [![Build Status](https://travis-ci.org/rji/puppet-waylon.svg?branch=master)](https://travis-ci.org/rji/puppet-waylon)
 A Puppet module to deploy [Waylon][1] instances.
 
+> This module is maintained by Puppet for internal purposes, and we have no plans for future feature development. It does not qualify for Puppet Support plans.
+>
+> [tier:maintenance-mode]
 
 ## Overview
 This is a Puppet module to manage all aspects of deploying an instance of
